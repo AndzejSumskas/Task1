@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 
 namespace ConsoleApp1
@@ -8,12 +9,12 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            string text = System.IO.File.ReadAllText(@"C:\Users\Andzej\Desktop\IT Tasks\HomeWork\Task1\Test.txt");
+            string textFromTxt = System.IO.File.ReadAllText(@"C:\Users\Andzej\Desktop\IT Tasks\HomeWork\Task1\Test.txt");
 
             char[] separators = new char[] { ' ', '.', '?', ',', '-', '\t', '\n', '\r' };
 
-            string[] wordsArray = text.Split(separators, StringSplitOptions.RemoveEmptyEntries);
-            Console.WriteLine("Is viso yra {0} zodziu", wordsArray.Length);
+            string[] wordsArray = textFromTxt.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            Console.WriteLine("There is {0} words", wordsArray.Length);
 
             List<string> wordsList = new List<string>();
             List<int> wordsListCount = new List<int>();
@@ -26,7 +27,6 @@ namespace ConsoleApp1
             {
                 Console.WriteLine("Value: " + x.Key + " Count: " + x.Value);
             }
-
         }
     }
 }
