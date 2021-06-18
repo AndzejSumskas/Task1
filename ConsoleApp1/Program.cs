@@ -16,9 +16,6 @@ namespace ConsoleApp1
             string[] wordsArray = textFromTxt.Split(separators, StringSplitOptions.RemoveEmptyEntries);
             Console.WriteLine("There is {0} words", wordsArray.Length);
 
-            List<string> wordsList = new List<string>();
-            List<int> wordsListCount = new List<int>();
-
             var result = wordsArray.GroupBy(x => x)
                        .ToDictionary(y => y.Key, y => y.Count())
                        .OrderByDescending(z => z.Value);
